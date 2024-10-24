@@ -1,0 +1,23 @@
+
+{
+  "build": {
+    "beforeBuildCommand": "",
+    "beforeDevCommand": "",
+    "devPath": "../public",
+    "distDir": "../public"
+  },
+  "package": {
+    "productName": "RustDeskApp",
+    "version": "1.0.0"
+  },
+  "tauri": {
+    "windows": [
+      {
+        "title": "RustDeskApp",
+        "width": 800,
+        "height": 600,
+        "resizable": true
+      }
+    ]
+  }
+}
