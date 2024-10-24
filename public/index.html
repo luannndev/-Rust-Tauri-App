@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RustDeskApp</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f9;
+    }
+    h1 {
+      color: #333;
+    }
+    button {
+      padding: 10px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to RustDeskApp</h1>
+  <p>This is a lightweight desktop application powered by Rust and Tauri.</p>
+  <button onclick="callApi()">Call API</button>
+  <button onclick="readFile()">Read File</button>
+  <button onclick="writeFile()">Write File</button>
+  <script>
+    async function callApi() {
+      const response = await window.__TAURI__.invoke('call_api');
+      alert('API Response: ' + response);
+    }
+    
+    async function readFile() {
+      const content = await window.__TAURI__.invoke('read_file', { filePath: 'example.txt' });
+      alert('File Content: ' + content);
+    }
+
+    async function writeFile() {
+      const content = 'This is some text to write into a file.';
+      await window.__TAURI__.invoke('write_file', { filePath: 'example.txt', content });
+      alert('File written successfully.');
+    }
+  </script>
+</body>
+</html>
